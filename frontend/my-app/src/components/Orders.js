@@ -26,6 +26,9 @@ function preventDefault(event) {
 }
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    fontSize: '12px'
+  },
   seeMore: {
     marginTop: theme.spacing(3),
   },
@@ -34,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
 export default function Orders() {
   const classes = useStyles();
   return (
-    <React.Fragment>
+    <React.Fragment className='classes.root'>
       <Title>Recent Orders</Title>
       <Table size="small">
         <TableHead>

@@ -13,6 +13,7 @@ import Orders from './Orders';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    fontSize: '12px'
   },
   title: {
     flexGrow: 1,

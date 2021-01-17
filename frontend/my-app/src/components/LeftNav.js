@@ -20,9 +20,10 @@ const drawerWidth = 240;
           display: 'flex',
         },
         drawerPaper: {
-          position: 'relative',
+          position: 'sticky',
           whiteSpace: 'nowrap',
           width: drawerWidth,
+          height: '100vh',
           transition: theme.transitions.create('width', {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
@@ -47,7 +48,7 @@ export default function LeftNav(){
         classes={{
           paper: clsx(classes.drawerPaper, false),
         }}
-        open={true} >
+        open={true}>
         <BrandLogo></BrandLogo>
         <ThemeProvider>
             <List>{mainListItems}</List>

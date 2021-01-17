@@ -13,9 +13,7 @@ const THEME = createMuiTheme({
      fontFamily: "Inter",
     },
     body2: {
-      fontFamily: "IBM Plex Serif",
-      fontSize: '38px',
-      fontWeight: 'bold'
+      fontSize: '12px',
     }
  
   },
