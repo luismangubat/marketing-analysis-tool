@@ -9,7 +9,6 @@ import  Target from '../assets/target.svg';
 
 
 
-
 const useStyles = makeStyles((theme) => ({
 
   root: {
@@ -77,6 +76,7 @@ const useStyles = makeStyles((theme) => ({
   
 
 function Landing(){
+
   const classes = useStyles();
   return(
     <div>
@@ -97,6 +97,7 @@ function Landing(){
 
     </div>
   );
+
 }
 
 export default Landing;

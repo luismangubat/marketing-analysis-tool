@@ -16,6 +16,9 @@ const THEME = createMuiTheme({
       fontFamily: "IBM Plex Serif",
       fontSize: '38px',
       fontWeight: 'bold'
+    },
+    button: {
+      textTransform: 'none'
     }
  
   },
@@ -25,11 +28,11 @@ const THEME = createMuiTheme({
       secondary:'#F56400',
       hint: '#666666',
     },
-    primary: { // works
-      main: '#000000',
+    primary: { 
+      main: '#FF8129',
       contrastText: '#fff',
     },
-    secondary: { // works
+    secondary: {
       main: '#FFE4D1',
       contrastText: '#000',
     },
