@@ -1,0 +1,37 @@
+h1{
+    font-family: 'IBM Plex Serif';
+    font-weight: bold;
+    font-size: 72px;
+    padding-left: 2%;
+    margin-bottom: 0;
+}
+
+p{
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    padding-left: 2%;
+ 
+}
+
+.MuiTextField-root {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 28px;
+    color: #666666;
+    width: 50%;
+}
+
+
+.MuiContainer-root{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left:10%;
+    padding-right: 10%;
+    height:100%;
+}
+
+.MuiOutlinedInput-root{
+    border-radius: 50px;
+}
