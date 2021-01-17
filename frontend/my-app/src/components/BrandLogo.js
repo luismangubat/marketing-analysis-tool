@@ -13,12 +13,12 @@ export default function BrandLogo(){
     }
     return(
         
-            <div style={logoContainerStyle}>
-                <Link to="/" style={{ textDecoration: 'none',
-                                color: '#000000'}}> 
-                    <h2 style={logoStyle}>Marketeer</h2>
-                </Link>
-            </div>
+        <div style={logoContainerStyle}>
+            <Link to="/" style={{ textDecoration: 'none',
+                            color: '#000000'}}> 
+                <h2 style={logoStyle}>Marketeer</h2>
+            </Link>
+        </div>
         
     );
 }
