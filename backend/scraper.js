@@ -40,7 +40,7 @@ let productTable = []
 async function searchProduct(search) {
 
   const url  = `https://www.etsy.com/ca/search?q=${search}`
-  const browser = await puppeteer.launch({headless: false});
+  const browser = await puppeteer.launch({headless: true});
   const page = await browser.newPage();
   await page.goto(url, {waitUntil:"domcontentloaded"});
   await page.setViewport({width: 408, height: 1200});
@@ -78,7 +78,7 @@ async function searchProduct(search) {
       const txt = await productNameElement.getProperty('textContent');
       const json1 = await txt.jsonValue();
       var productname = String(json1).trim();
-      productname = productname.match(/[\x00-\x7F]+/g);
+      productname = productname.replace(/[^\x00-\x7F]/g, "");
     
       const [producePriceElement] = await page.$x('//*[@id="listing-page-cart"]/div/div[4]/div/div/div[1]/p');
       const txt2 = await producePriceElement.getProperty('textContent');
@@ -98,7 +98,7 @@ async function searchProduct(search) {
       const txt4 = await productDescriptionElement.getProperty('textContent');
       const json4 = await txt4.jsonValue()
       var productdescription = String(json4).trim();
-      productdescription = productdescription.match(/[\x00-\x7F]+/g);
+      productdescription = productdescription.replace(/[^\x00-\x7F]/g, "");
 
 
       const [productRatingElement] = await page.$x('//*[@id="listing-page-cart"]/div/div[2]/div/span[4]/a/span/span[1]');
@@ -114,14 +114,14 @@ async function searchProduct(search) {
       const txt6 = await sellerNameElement.getProperty('textContent');
       const json6 = await txt6.jsonValue()
       var sellername = String(json6).trim();
-      sellername = sellername.match(/[\x00-\x7F]+/g);
+      sellername = sellername.replace(/[^\x00-\x7F]/g, "");
     
     
       const [locationElement] = await page.$x('//*[@id="shipping-variant-div"]/div/div[2]/div[7]');
       const txt7 = await locationElement.getProperty('textContent');
       const json7 = await txt7.jsonValue()
       var location = String(json7).trim();
-      location = location.match(/[\x00-\x7F]+/g);
+      location = location.replace(/[^\x00-\x7F]/g, "");
 
 
       const [numberSellerReviewsElements] = await page.$x('//*[@id="reviews"]/div[1]/div[1]/div/h3');
