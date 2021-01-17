@@ -13,9 +13,6 @@ async function scrapeProduct(id) {
   const txt2 = await producePriceElement.getProperty('textContent');
   const producePrice = await txt2.jsonValue();
 
-  const [produceReviewElement] = await page.$x('//*[@id="listing-page-cart"]/div/div[2]/div/a/span[1]');
-  const txt3 = await produceReviewElement.getProperty('textContent');
-  const productReview = await txt3.jsonValue();
 
   console.log({ productName, producePrice, productReview});
 
@@ -51,7 +48,7 @@ async function searchProuct(search) {
   // 
   let productIDList = []
 
-  for (i = 1; i < 10; i++) {
+  for (i = 1; i < 30; i++) {
     await page.waitForSelector(`#content > div > div.content.bg-white.col-md-12.pl-xs-1.pr-xs-0.pr-md-1.pl-lg-0.pr-lg-0.bb-xs-1 > div > div > div.col-group.pl-xs-0.search-listings-group.pr-xs-1 > div:nth-child(2) > div.bg-white.display-block.pb-xs-2.mt-xs-0 > div > div:nth-child(3) > div > li:nth-child(${i}) > div > div`)
     let id = await page.evaluate(`document.querySelector("#content > div > div.content.bg-white.col-md-12.pl-xs-1.pr-xs-0.pr-md-1.pl-lg-0.pr-lg-0.bb-xs-1 > div > div > div.col-group.pl-xs-0.search-listings-group.pr-xs-1 > div:nth-child(2) > div.bg-white.display-block.pb-xs-2.mt-xs-0 > div > div:nth-child(3) > div > li:nth-child(${i}) > div > div").getAttribute("data-listing-id")`)
     
@@ -84,12 +81,16 @@ async function searchProuct(search) {
       const [producePriceElement] = await page.$x('//*[@id="listing-page-cart"]/div/div[4]/div/div/div[1]/p');
       const txt2 = await producePriceElement.getProperty('textContent');
       const json2 = await txt2.jsonValue();
-      const productPrice = String(json2).trim();
+      var productPrice = String(json2).trim();
+      var match = productPrice.match(/[\d.]+/);
+      productPrice = parseFloat(match);
     
       const [totalSalesElement] = await page.$x('//*[@id="listing-page-cart"]/div/div[2]/div/a/span[1]');
       const txt3 = await totalSalesElement.getProperty('textContent');
       const json3 = await txt3.jsonValue()
-      const totalSales = String(json3).trim();
+      var totalSales = String(json3).trim();
+      match = totalSales.match(/[\d.]+/);
+      totalSales = parseInt(match, 10);
     
       const [productDescriptionElement] = await page.$x('//*[@id="wt-content-toggle-product-details-read-more"]/p/text()[2]');
       const txt4 = await productDescriptionElement.getProperty('textContent');
@@ -100,7 +101,9 @@ async function searchProuct(search) {
       const [productRatingElement] = await page.$x('//*[@id="listing-page-cart"]/div/div[2]/div/span[4]/a/span/span[1]');
       const txt5 = await productRatingElement.getProperty('textContent');
       const json5 = await txt5.jsonValue()
-      const productRating = String(json5).trim();
+      var productRating = String(json5).trim();
+      match = productRating.match(/[\d.]+/);
+      productRating = parseInt(match, 10);
 
 
     
@@ -115,10 +118,12 @@ async function searchProuct(search) {
       const json7 = await txt7.jsonValue()
       const location = String(json7).trim();
 
-      const [numberSellerReviewsElements] = await page.$x('//*[@id="shipping-variant-div"]/div/div[2]/div[7]');
+      const [numberSellerReviewsElements] = await page.$x('//*[@id="reviews"]/div[1]/div[1]/div/h3');
       const txt8 = await numberSellerReviewsElements.getProperty('textContent');
       const json8 = await txt8.jsonValue()
-      const numberSellerReviews = String(json8).trim();
+      var numberSellerReviews = String(json8).trim();
+      match = numberSellerReviews.match(/[\d.]+/);
+      numberSellerReviews = parseInt(match, 10);
 
 
       productTable.push({productID, productName, productDescription, productPrice, totalSales, productRating, sellerName, location, numberSellerReviews})
