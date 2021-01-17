@@ -37,7 +37,7 @@ candleList.map(candle => {
 
 let productTable = []
 
-async function searchProuct(search) {
+async function searchProduct(search) {
 
   const url  = `https://www.etsy.com/ca/search?q=${search}`
   const browser = await puppeteer.launch({headless: false});
@@ -71,63 +71,68 @@ async function searchProuct(search) {
 
       await page.goto(`https://www.etsy.com/ca/listing/${ID}`);
 
-      const productID = String(ID);
+      var productid = String(ID);
+      productid = parseInt(productid);
     
       const [productNameElement] = await page.$x('//*[@id="listing-page-cart"]/div/div[3]/div/h1');
       const txt = await productNameElement.getProperty('textContent');
       const json1 = await txt.jsonValue();
-      const productName = String(json1).trim();
+      var productname = String(json1).trim();
+      productname = productname.match(/[\x00-\x7F]+/g);
     
       const [producePriceElement] = await page.$x('//*[@id="listing-page-cart"]/div/div[4]/div/div/div[1]/p');
       const txt2 = await producePriceElement.getProperty('textContent');
       const json2 = await txt2.jsonValue();
-      var productPrice = String(json2).trim();
-      var match = productPrice.match(/[\d.]+/);
-      productPrice = parseFloat(match);
+      var productprice = String(json2).trim();
+      var match = productprice.match(/[\d.]+/);
+      productprice = parseFloat(match);
     
       const [totalSalesElement] = await page.$x('//*[@id="listing-page-cart"]/div/div[2]/div/a/span[1]');
       const txt3 = await totalSalesElement.getProperty('textContent');
       const json3 = await txt3.jsonValue()
-      var totalSales = String(json3).trim();
-      match = totalSales.match(/[\d.]+/);
-      totalSales = parseInt(match, 10);
+      var totalsales = String(json3).trim();
+      match = totalsales.match(/[\d]+/);
+      totalsales = parseInt(match, 10);
     
       const [productDescriptionElement] = await page.$x('//*[@id="wt-content-toggle-product-details-read-more"]/p/text()[2]');
       const txt4 = await productDescriptionElement.getProperty('textContent');
       const json4 = await txt4.jsonValue()
-      const productDescription = String(json4).trim();
+      var productdescription = String(json4).trim();
+      productdescription = productdescription.match(/[\x00-\x7F]+/g);
 
 
       const [productRatingElement] = await page.$x('//*[@id="listing-page-cart"]/div/div[2]/div/span[4]/a/span/span[1]');
       const txt5 = await productRatingElement.getProperty('textContent');
       const json5 = await txt5.jsonValue()
-      var productRating = String(json5).trim();
-      match = productRating.match(/[\d.]+/);
-      productRating = parseInt(match, 10);
+      var productrating = String(json5).trim();
+      match = productrating.match(/[\d.]+/);
+      productrating = parseFloat(match);
 
 
     
       const [sellerNameElement] = await page.$x('//*[@id="listing-page-cart"]/div/div[1]/p/a/span');
       const txt6 = await sellerNameElement.getProperty('textContent');
       const json6 = await txt6.jsonValue()
-      const sellerName = String(json6).trim();
+      var sellername = String(json6).trim();
+      sellername = sellername.match(/[\x00-\x7F]+/g);
     
     
       const [locationElement] = await page.$x('//*[@id="shipping-variant-div"]/div/div[2]/div[7]');
       const txt7 = await locationElement.getProperty('textContent');
       const json7 = await txt7.jsonValue()
-      const location = String(json7).trim();
+      var location = String(json7).trim();
+      location = location.match(/[\x00-\x7F]+/g);
+
 
       const [numberSellerReviewsElements] = await page.$x('//*[@id="reviews"]/div[1]/div[1]/div/h3');
       const txt8 = await numberSellerReviewsElements.getProperty('textContent');
       const json8 = await txt8.jsonValue()
-      var numberSellerReviews = String(json8).trim();
-      match = numberSellerReviews.match(/[\d.]+/);
-      numberSellerReviews = parseInt(match, 10);
+      var numbersellerreviews = String(json8).trim();
+      match = numbersellerreviews.match(/[\d]+/);
+      numbersellerreviews = parseInt(match, 10);
 
 
-      productTable.push({productID, productName, productDescription, productPrice, totalSales, productRating, sellerName, location, numberSellerReviews})
-
+      productTable.push({productid, productname, productdescription, productprice, totalsales, productrating, sellername, location, numbersellerreviews})
 
     }
 
@@ -137,13 +142,14 @@ async function searchProuct(search) {
   
   }
 
-  const jsonObjectTable = JSON.stringify(productTable);
+  const jsonObjectTable = JSON.stringify({ "data": productTable });
   console.log(jsonObjectTable);
 
   var fs = require('fs');
   fs.writeFile("productTable.json", jsonObjectTable, function(err, result) {
       if(err) console.log('error', err);
   });
+  //todo
 
 
 
@@ -155,7 +161,7 @@ async function searchProuct(search) {
 
   try {
 
-    searchProuct("candle");
+    searchProduct("candle");
 
   }
   catch (err) {
