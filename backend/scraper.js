@@ -149,7 +149,6 @@ async function searchProduct(search) {
   fs.writeFile("productTable.json", jsonObjectTable, function(err, result) {
       if(err) console.log('error', err);
   });
-  //todo
 
 
 
