@@ -13,9 +13,6 @@ async function scrapeProduct(id) {
   const txt2 = await producePriceElement.getProperty('textContent');
   const producePrice = await txt2.jsonValue();
 
-  const [produceReviewElement] = await page.$x('//*[@id="listing-page-cart"]/div/div[2]/div/a/span[1]');
-  const txt3 = await produceReviewElement.getProperty('textContent');
-  const productReview = await txt3.jsonValue();
 
   console.log({ productName, producePrice, productReview});
 
@@ -51,7 +48,7 @@ async function searchProuct(search) {
   // 
   let productIDList = []
 
-  for (i = 1; i < 10; i++) {
+  for (i = 1; i < 30; i++) {
     await page.waitForSelector(`#content > div > div.content.bg-white.col-md-12.pl-xs-1.pr-xs-0.pr-md-1.pl-lg-0.pr-lg-0.bb-xs-1 > div > div > div.col-group.pl-xs-0.search-listings-group.pr-xs-1 > div:nth-child(2) > div.bg-white.display-block.pb-xs-2.mt-xs-0 > div > div:nth-child(3) > div > li:nth-child(${i}) > div > div`)
     let id = await page.evaluate(`document.querySelector("#content > div > div.content.bg-white.col-md-12.pl-xs-1.pr-xs-0.pr-md-1.pl-lg-0.pr-lg-0.bb-xs-1 > div > div > div.col-group.pl-xs-0.search-listings-group.pr-xs-1 > div:nth-child(2) > div.bg-white.display-block.pb-xs-2.mt-xs-0 > div > div:nth-child(3) > div > li:nth-child(${i}) > div > div").getAttribute("data-listing-id")`)
     
@@ -115,13 +112,18 @@ async function searchProuct(search) {
       const json7 = await txt7.jsonValue()
       const location = String(json7).trim();
 
-      const [numberSellerReviewsElements] = await page.$x('//*[@id="shipping-variant-div"]/div/div[2]/div[7]');
+      const [numberSellerReviewsElements] = await page.$x('//*[@id="reviews"]/div[1]/div[1]/div/h3');
       const txt8 = await numberSellerReviewsElements.getProperty('textContent');
       const json8 = await txt8.jsonValue()
       const numberSellerReviews = String(json8).trim();
 
+      const [sellerReviewElements] = await page.$x('//*[@id="review-preview-toggle-0"]');
+      const txt9 = await sellerReviewElements.getProperty('textContent');
+      const json9 = await txt9.jsonValue()
+      const sellerReview = String(json9).trim();
 
-      productTable.push({productID, productName, productDescription, productPrice, totalSales, productRating, sellerName, location, numberSellerReviews})
+
+      productTable.push({productID, productName, productDescription, productPrice, totalSales, productRating, sellerName, location, numberSellerReviews, sellerReview})
 
 
     }
