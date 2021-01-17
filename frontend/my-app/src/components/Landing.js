@@ -83,7 +83,7 @@ function Landing(){
       <NavBar className={classes.NavBar}></NavBar>
       <Container>
       <h1>Marketeer</h1>
-      <p className={classes.tagLine}>A powerful analytic tool to help entrepreneurs collect<br/> competitive analysis for content.</p>
+      <p className={classes.tagLine}>A powerful analytics tool to help entrepreneurs collect<br/> competitor analysis for their products.</p>
         <div className={classes.buttonOuterContainer}>
           <div className={classes.root}>
               <Button className={classes.getStartButton}> Get Started</Button>

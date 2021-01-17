@@ -9,11 +9,6 @@ function NavBar(){
     return(
         <Toolbar>
             <BrandLogo></BrandLogo>
-            <Button size="large">Log In</Button>
-            <Button variant="contained"
-                disableElevation
-                color="secondary"
-                size="large">Sign Up</Button>
         </Toolbar>
     );
 }
