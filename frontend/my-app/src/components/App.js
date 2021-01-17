@@ -9,6 +9,15 @@ import Browse from './Browse'
 const THEME = createMuiTheme({
   typography: {
    "fontFamily": `"Inter", "IBM Plex Serif", serif`,
+   body1: {
+     fontFamily: "Inter",
+    },
+    body2: {
+      fontFamily: "IBM Plex Serif",
+      fontSize: '38px',
+      fontWeight: 'bold'
+    }
+ 
   },
   palette: {
     text: {
