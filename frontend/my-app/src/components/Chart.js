@@ -46,7 +46,7 @@ export default function Chart() {
               Sales ($)
             </Label>
           </YAxis>
-          <Line type="monotone" dataKey="amount" stroke={theme.palette.primary.main} dot={false} />
+          <Line type="monotone" dataKey="amount" stroke={theme.palette.text.primary} dot={false} />
         </LineChart>
       </ResponsiveContainer>
     </React.Fragment>
