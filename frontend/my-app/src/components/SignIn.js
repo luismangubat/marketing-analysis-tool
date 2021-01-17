@@ -66,6 +66,12 @@ const useStyles = makeStyles((theme) => ({
       alignContent: 'center'
     },
 
+    divider: {
+      width: '300px',
+      maxWidth: '500px',
+
+    }
+
   }
 }));
 
@@ -86,6 +92,7 @@ const SignIn = () => {
       });
       
   }
+
 
 
 
