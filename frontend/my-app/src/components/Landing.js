@@ -2,11 +2,8 @@ import React from 'react'
 import '../style/Landing.css'
 import Container from '@material-ui/core/Container';
 import NavBar from './NavBar'
-import SearchBar from "./SearchBar";
+import Button from '@material-ui/core/Button'
 
-function doSearch(){
-
-}
 
 
 function Landing(){
@@ -15,7 +12,12 @@ function Landing(){
             <NavBar></NavBar>
             <h1>Marketeer</h1>
             <p>A powerful tool to help entrepreneurs collect competitive analysis on Etsy.</p>
-            <SearchBar></SearchBar>
+            <Button variant="contained"
+                disableElevation
+                color="primary"
+                size="large">Get Started</Button>
+            <Button size="large">Log In</Button>
+            
         </Container>
     );
 }

@@ -4,7 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Link from '@material-ui/core/Link';
+import Divider from '@material-ui/core/Divider';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -21,18 +21,21 @@ const useStyles = makeStyles((theme) => ({
     height: '100vh',
   },
   paper: {
-    margin: theme.spacing(8, 4),
+    margin: theme.spacing(25, 4),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
+    padding: '10%',
+    textTransform: 'none'
   },
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
   submit: {
-    margin: theme.spacing(3, 0, 2),
-  },
+    margin: theme.spacing(4, 35, 2),
+  }
+  
 }));
 
 export default function SignIn() {
@@ -42,7 +45,7 @@ export default function SignIn() {
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
       <img src='images/signin.png' height="100%"></img>
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={0} square>
         <div className={classes.paper}>
           <Typography component="h1" variant="body2">
             Create an account
@@ -52,8 +55,13 @@ export default function SignIn() {
             buttonText="Sign in with Google"
             onSuccess={responseGoogle}
             onFailure={responseGoogle}
-            cookiePolicy={'single_host_origin'}/>
+            cookiePolicy={'single_host_origin'}
+           />
+            
           <form className={classes.form} noValidate>
+    
+            <Divider variant="middle" />
+           
             <TextField
               variant="outlined"
               margin="normal"
@@ -76,19 +84,10 @@ export default function SignIn() {
               id="password"
               autoComplete="current-password"
             />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Remember me"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-            >
-              Sign In
-            </Button>
+            <Button variant="contained"
+                disableElevation
+                color="secondary"
+                size="large">Sign Up</Button>
             <Grid container>
             </Grid>
             <Box mt={5}>
