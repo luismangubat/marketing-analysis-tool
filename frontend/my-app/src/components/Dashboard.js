@@ -9,6 +9,7 @@ import Paper from '@material-ui/core/Paper';
 import Chart from './Chart';
 import Deposits from './Deposits';
 import Orders from './Orders';
+import firebase from 'firebase';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,7 +34,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Dashboard() {
+const ref = firebase.firestore().collection("searches")
+console.log(ref)
+
+function Dashboard() {
+
   const classes = useStyles();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
@@ -70,3 +75,5 @@ export default function Dashboard() {
     </div>
   );
 }
+
+export default Dashboard;

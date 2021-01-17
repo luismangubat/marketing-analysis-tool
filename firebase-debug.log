@@ -1,0 +1,21 @@
+[debug] [2021-01-17T05:45:54.163Z] ----------------------------------------------------------------------
+[debug] [2021-01-17T05:45:54.165Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\josel\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2021-01-17T05:45:54.165Z] CLI Version:   9.1.0
+[debug] [2021-01-17T05:45:54.165Z] Platform:      win32
+[debug] [2021-01-17T05:45:54.165Z] Node Version:  v12.18.3
+[debug] [2021-01-17T05:45:54.166Z] Time:          Sun Jan 17 2021 00:45:54 GMT-0500 (Eastern Standard Time)
+[debug] [2021-01-17T05:45:54.166Z] ----------------------------------------------------------------------
+[debug] [2021-01-17T05:45:54.166Z] 
+[debug] [2021-01-17T05:45:54.171Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-01-17T05:45:54.171Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\josel\OneDrive\Documents\GitHub\marketing-analysis-tool
+

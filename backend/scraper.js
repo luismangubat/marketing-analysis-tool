@@ -125,8 +125,14 @@ async function searchProuct(search) {
       match = numberSellerReviews.match(/[\d.]+/);
       numberSellerReviews = parseInt(match, 10);
 
+          
+      const [sellerReviewElement] = await page.$x('//*[@id="review-preview-toggle-0"]');
+      const txt9= await sellerReviewElement.getProperty('textContent');
+      const json9 = await txt9.jsonValue()
+      const sellerReview = String(json9).trim();
 
-      productTable.push({productID, productName, productDescription, productPrice, totalSales, productRating, sellerName, location, numberSellerReviews})
+
+      productTable.push({productID, productName, productDescription, productPrice, totalSales, productRating, sellerName, location, numberSellerReviews, sellerReview})
 
 
     }
