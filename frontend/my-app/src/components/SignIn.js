@@ -66,6 +66,12 @@ const useStyles = makeStyles((theme) => ({
       alignContent: 'center'
     },
 
+    divider: {
+      width: '300px',
+      maxWidth: '500px',
+
+    }
+
   }
 }));
 
@@ -89,6 +95,7 @@ const SignIn = () => {
 
 
 
+
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
@@ -103,7 +110,11 @@ const SignIn = () => {
           </Button>
      
           <form className={classes.form} noValidate>
+<<<<<<< Updated upstream
           <Divider/>
+=======
+          <Divider classeName={classes.Divider}/>
+>>>>>>> Stashed changes
             <TextField
               variant="outlined"
               margin="normal"

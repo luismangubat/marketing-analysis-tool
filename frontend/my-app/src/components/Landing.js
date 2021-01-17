@@ -81,6 +81,11 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     zIndex: '-2',
     position: 'absolute',
+  }, 
+  divide: {
+    with: '100px',
+    height: '30px',
+    paddingLeft: '30px',
   }
   
 }));
@@ -99,7 +104,6 @@ function Landing(){
               <Button className={classes.getStartButton} onClick={() => window.location.href = '/signin'}> Get Started</Button>
               <Button className={classes.loginButton} variant="outlined"> Login</Button>
               <img className={classes.targetImage}src={Target}></img>
-
           </div>
         </div>
       </Container>

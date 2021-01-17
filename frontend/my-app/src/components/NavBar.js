@@ -12,6 +12,13 @@ const useStyles = makeStyles((theme) => ({
 
     imagelogo: {
         paddingLeft: '25px'
+    }, 
+
+    buttonLogin: {
+        width: '30px',
+        height: '100px',
+
+        
     }
     
   }));
@@ -24,7 +31,8 @@ function NavBar(){
         <Toolbar>
             <img src={Line} className={classes.imagelogo}></img>
             <BrandLogo></BrandLogo>
-  
+            <Button> Login</Button>
+            <Button> Height</Button>
         </Toolbar>
     );
 }
