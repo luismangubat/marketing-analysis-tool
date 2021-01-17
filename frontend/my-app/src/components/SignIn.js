@@ -4,7 +4,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import Divider from '@material-ui/core/Divider';
+import Link from '@material-ui/core/Link';
 import Paper from '@material-ui/core/Paper';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
@@ -99,24 +99,18 @@ const SignIn = () => {
   return (
     <Grid container component="main" className={classes.root}>
       <CssBaseline />
-      <img src='images/signin.png' height="100%"></img>
-      <Grid item xs={12} sm={8} md={5} component={Paper} elevation={0} square>
+      <Grid item xs={12} sm={6} md={7} component={Paper} elevation={6} square>
         <div className={classes.paper}>
           <Typography component="h1" variant="body2">
             Create an account
           </Typography>
-          <GoogleLogin
-            clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
-            buttonText="Sign in with Google"
-            onSuccess={responseGoogle}
-            onFailure={responseGoogle}
-            cookiePolicy={'single_host_origin'}
-           />
-            
+  
+          <Button className={classes.googleButton} onClick={signInWithGoogle}>
+            Sign in with Google
+          </Button>
+     
           <form className={classes.form} noValidate>
-    
-            <Divider variant="middle" />
-           
+          <Divider/>
             <TextField
               variant="outlined"
               margin="normal"
@@ -141,10 +135,19 @@ const SignIn = () => {
               autoComplete="current-password"
               className={classes.inputField}
             />
-            <Button variant="contained"
-                disableElevation
-                color="secondary"
-                size="large">Sign Up</Button>
+            <FormControlLabel
+              control={<Checkbox value="remember" color="primary" />}
+              label="Remember me"
+            />
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+            >
+              Sign In
+            </Button>
             <Grid container>
             </Grid>
             <Box mt={5}>
