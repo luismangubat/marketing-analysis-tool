@@ -1,0 +1,44 @@
+.rightPanelContent{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 2%;
+    background: #FAFAFB;
+}
+
+h2{
+    font-family: 'IBM Plex Serif';
+    font-size: 32px;
+    color: #22395B;
+}
+
+.fileUpload {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inter';
+    font-weight:400;
+    border-radius: 10px;
+    border: 2px dashed grey;
+    width: 35%;
+    padding: 5%;
+    justify-content: center;
+    align-items: center;
+}
+
+.uploadBtn {
+    border-radius: 50px;
+    background: #FFE4D1;
+    padding: 1%;
+    width: 10em;
+    text-align: center;
+    transition: all 0.3s ease;
+    font-size: 12px;
+}
+
+.uploadBtn:hover {
+    background: #DCC0AD;
+}
+.uploadBtn:active {
+    background: #FFE4D1;
+
+}

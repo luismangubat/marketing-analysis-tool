@@ -6,8 +6,8 @@ import TextField from '@material-ui/core/TextField';
 const useStyles = makeStyles((theme) => ({
     root: {
       display: 'flex',
-      paddingLeft: '1.5%',
-      paddingRight: '1.5%',
+      paddingLeft: '1%',
+      paddingRight: '1%',
       marginTop: '2%'
     }
 }));

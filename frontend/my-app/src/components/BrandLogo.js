@@ -6,7 +6,7 @@ export default function BrandLogo(){
         fontFamily: 'IBM Plex Serif', 
         fontWeight: 600,
         fontSize: '25px',
-        marginLeft: '15%',
+        marginLeft: '5%',
     };
     const logoContainerStyle = {
         paddingRight: '74%'

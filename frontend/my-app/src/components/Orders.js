@@ -26,6 +26,9 @@ function preventDefault(event) {
 }
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    fontSize: '12px'
+  },
   seeMore: {
     marginTop: theme.spacing(3),
   },
@@ -35,7 +38,7 @@ export default function SellerAnalysis() {
   const classes = useStyles();
 
   return (
-    <React.Fragment>
+    <React.Fragment className='classes.root'>
       <Title>Seller Analysis</Title>
       <Table size="small">
         <TableHead>
